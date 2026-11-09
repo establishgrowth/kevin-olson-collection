@@ -3,6 +3,7 @@
  * Paste this into Extensions › Apps Script of the "Stories & Inquiries" Google Sheet,
  * then Deploy › New deployment › Web app (Execute as: Me, Who has access: Anyone).
  * Every story, inquiry, selection and print notification from the website becomes a row.
+ * The visitor gets a thank-you email (if they gave one), and you get an email with what they sent.
  */
 var HEADERS = ['Received', 'Type', 'Piece ID', 'Piece title', 'First name', 'Last name',
                'Email', 'Phone', 'Note / story', 'Status', 'Page', 'Site version'];
@@ -20,6 +21,7 @@ function doPost(e) {
       clean_(r.message), 'New', clean_(r.page), clean_(r.version)
     ]);
   });
+  if (rows.length) { try { sendEmails_(rows); } catch (err) {} }
   return ContentService.createTextOutput(JSON.stringify({ ok: true, added: rows.length }))
     .setMimeType(ContentService.MimeType.JSON);
 }
@@ -43,4 +45,24 @@ function getSheet_() {
 function clean_(v) {
   v = v == null ? '' : String(v).slice(0, 5000);
   return /^[=+\-@]/.test(v) ? "'" + v : v;
+}
+
+function sendEmails_(rows) {
+  var r0 = rows[0], name = [r0.firstName, r0.lastName].join(' ').trim() || 'Someone';
+  var lines = rows.map(function (r) {
+    return '• ' + (r.pieceId || '') + (r.pieceTitle ? ' — ' + r.pieceTitle : '') + ' (' + (r.type || '') + ')' + (r.message ? '\n   "' + r.message + '"' : '');
+  }).join('\n');
+  var owner = Session.getEffectiveUser().getEmail();
+  if (owner) {
+    MailApp.sendEmail(owner, 'Kevin Olson Collection: new note from ' + name,
+      name + ' sent ' + rows.length + (rows.length === 1 ? ' note' : ' notes') + '.\n\n' + lines +
+      '\n\nEmail: ' + (r0.email || '-') + '\nPhone: ' + (r0.phone || '-') +
+      '\n\nEverything is also in the Stories & Inquiries spreadsheet.');
+  }
+  if (r0.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(r0.email)) {
+    MailApp.sendEmail(r0.email, 'Thank you, from Kevin Olson\'s family',
+      'Dear ' + (r0.firstName || 'friend') + ',\n\nThank you for showing your interest in Kevin\'s collection. ' +
+      'We received your note' + (rows.length > 1 ? 's' : '') + ' about:\n\n' + lines +
+      '\n\nWe\'ll read every word and be in touch with you personally.\n\nWith gratitude,\nKevin\'s family');
+  }
 }

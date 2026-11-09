@@ -26,7 +26,7 @@ A private preview of the gallery for Eric and close friends.
 5. Click **Deploy**, approve the Google permission prompt, and copy the **Web app URL**.
 6. Open `config.js` and paste the URL between the quotes after `endpoint:`.
 
-Every submission now lands in the **Submissions** tab: date, type (Inquiry, Story, Selection, Print notify), piece ID and title, name, email, phone, note, and a Status column for you to track replies.
+Every submission now lands in the **Submissions** tab, the visitor gets a thank-you email (if they gave an email), and you get an email with what they sent. Each row has: date, type (Inquiry, Story, Selection, Print notify), piece ID and title, name, email, phone, note, and a Status column for you to track replies.
 
 Until a URL is pasted in, the site still works and shows the thank-you message, but submissions stay in the visitor's browser only.
 
