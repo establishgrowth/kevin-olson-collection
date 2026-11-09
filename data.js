@@ -87,7 +87,7 @@ window.PIECES = [
  {
   "id": "KO-M005",
   "made": true,
-  "title": "Large Leaf (unframed)",
+  "title": "Sábado",
   "artist": "Kevin Olson",
   "photos": [
    "images/nov4/IMG_1403.jpg",
@@ -98,7 +98,7 @@ window.PIECES = [
    "images/nov4/IMG_1405.jpg"
   ],
   "video": "",
-  "details": "Silkscreen on paper, unframed. KO stamp",
+  "details": "Screen print on paper, unframed. KO stamp",
   "series": "Night Garden"
  },
  {

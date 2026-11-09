@@ -557,15 +557,30 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
   /* showcase */
   var picks = ['KO-C007','KO-C003','KO-C091','KO-C005','KO-C010','KO-C080','KO-C067','KO-C054','KO-C002','KO-C130','KO-C062','KO-C092','KO-C036','KO-C096','KO-C004','KO-C068']
     .map(function (id) { return BY[id]; }).filter(Boolean);
+  // Then everything else: the rest of his collection, with Kevin's own work hung through it.
+  (function () {
+    var seen = {}; picks.forEach(function (p) { seen[p.id] = 1; });
+    var made = PIECES.filter(function (p) { return p.made && !seen[p.id]; });
+    var coll = PIECES.filter(function (p) { return !p.made && !seen[p.id]; });
+    var step = Math.max(1, Math.floor(coll.length / (made.length + 1))), ci = 0;
+    made.forEach(function (m) { for (var i = 0; i < step && ci < coll.length; i++) picks.push(coll[ci++]); picks.push(m); });
+    while (ci < coll.length) picks.push(coll[ci++]);
+  })();
   var stage = document.getElementById('scStage'), bar = document.getElementById('scBar'), k = -1, timer, paused = false;
-  stage.innerHTML = picks.map(function (p) { return '<figure><img src="' + p.photos[0] + '" alt="" loading="lazy"><img class="fg" src="' + p.photos[0] + '" alt="' + e(p.title) + '" loading="lazy"></figure>'; }).join('');
+  // Photos load only as they come up (current piece and the next two), so all of them can be in the showcase.
+  stage.innerHTML = picks.map(function (p) { return '<figure><img alt=""><img class="fg" alt="' + e(p.title) + '"></figure>'; }).join('');
   var figs = stage.querySelectorAll('figure');
+  function warm(i) {
+    i = (i + picks.length) % picks.length; var f = figs[i];
+    if (f && !f.dataset.ld) { f.dataset.ld = 1; f.querySelectorAll('img').forEach(function (im) { im.src = picks[i].photos[0]; }); }
+  }
   function go(n) {
     k = (n + picks.length) % picks.length; var p = picks[k];
+    [0, 1, 2, -1].forEach(function (o) { warm(k + o); });
     figs.forEach(function (f, i) { f.classList.toggle('on', i === k); });
     document.getElementById('scId').textContent = p.id + ' · ' + (k + 1) + ' / ' + picks.length;
     document.getElementById('scT').textContent = p.title;
-    document.getElementById('scA').textContent = p.artist || '';
+    document.getElementById('scA').textContent = p.made ? 'Created by Kevin' + (p.series ? ' · ' + p.series : '') : (p.artist || '');
     stage.href = 'piece.html?id=' + p.id; stage.setAttribute('aria-label', 'Open ' + p.title);
     document.getElementById('scOpen').href = 'piece.html?id=' + p.id;
     bar.classList.remove('run'); void bar.offsetWidth; if (!paused) bar.classList.add('run');
