@@ -1,38 +1,33 @@
 // The Kevin Olson Collection — catalog (draft 0.5). Generated from kevin-olson-master-catalog.csv
 window.PIECES = [
  {
-  "id": "KO-M001",
+  "id": "KO-M007",
   "made": true,
-  "title": "Viernes",
+  "title": "Lunes",
   "artist": "Kevin Olson",
   "photos": [
-   "images/nov4/IMG_1013.jpg",
-   "images/nov4/IMG_1001.jpg",
-   "images/nov4/IMG_1014.jpg",
-   "images/nov4/IMG_1015.jpg",
-   "images/nov4/IMG_1016.jpg",
-   "images/nov4/IMG_1017.jpg"
+   "images/nov4/IMG_1001.jpg"
   ],
   "video": "",
-  "details": "Silkscreen, signed KO '16. Edition 3/25",
+  "details": "Screen print, 2016. Marked 3/15",
   "series": "Night Garden"
  },
  {
   "id": "KO-M002",
   "made": true,
-  "title": "Branch",
+  "title": "Martes",
   "artist": "Kevin Olson",
   "photos": [
    "images/nov4/IMG_1002.jpg"
   ],
   "video": "",
-  "details": "Silkscreen, signed KO '16. Edition of 25",
+  "details": "Screen print, signed KO '16. Edition of 25",
   "series": "Night Garden"
  },
  {
   "id": "KO-M003",
   "made": true,
-  "title": "Bud",
+  "title": "Miércoles",
   "artist": "Kevin Olson",
   "photos": [
    "images/nov4/IMG_1003.jpg",
@@ -41,7 +36,7 @@ window.PIECES = [
    "images/nov4/IMG_1006.jpg"
   ],
   "video": "",
-  "details": "Silkscreen, signed KO '16. Edition of 25",
+  "details": "Screen print, signed KO '16. Edition of 25",
   "series": "Night Garden"
  },
  {
@@ -58,7 +53,35 @@ window.PIECES = [
    "images/nov4/IMG_1011.jpg"
   ],
   "video": "",
-  "details": "Silkscreen, signed KO '16. Edition of 25",
+  "details": "Screen print, signed KO '16. Edition of 25",
+  "series": "Night Garden"
+ },
+ {
+  "id": "KO-M001",
+  "made": true,
+  "title": "Viernes",
+  "artist": "Kevin Olson",
+  "photos": [
+   "images/nov4/IMG_1013.jpg",
+   "images/nov4/IMG_1014.jpg",
+   "images/nov4/IMG_1015.jpg",
+   "images/nov4/IMG_1016.jpg",
+   "images/nov4/IMG_1017.jpg"
+  ],
+  "video": "",
+  "details": "Screen print, signed KO '16. Edition 3/25",
+  "series": "Night Garden"
+ },
+ {
+  "id": "KO-M008",
+  "made": true,
+  "title": "Domingo",
+  "artist": "Kevin Olson",
+  "photos": [
+   "images/nov4/domingo.jpg"
+  ],
+  "video": "",
+  "details": "Screen print, 2016",
   "series": "Night Garden"
  },
  {
