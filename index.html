@@ -431,10 +431,16 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
   <!-- From his collection: rotating showcase -->
   <section id="collection" class="sc" aria-roledescription="carousel" aria-label="From his collection">
     <div class="wrap sc-in">
-      <div class="sc-copy reveal">
+      <div class="sc-intro reveal">
         <p class="eyebrow">From his collection</p>
         <h2 class="serif sc-h">A life lived<br><em>among art.</em></h2>
         <p class="sc-p">Photographs, paintings, prints and portraits Kevin chose, bought and lived with — shown here alongside his own work.</p>
+      </div>
+      <div class="sc-stage-wrap reveal">
+        <a class="sc-stage" id="scStage" href="gallery.html" aria-label="Open piece"></a>
+        <p class="sc-hint" id="scHint" aria-hidden="true"><span>‹</span> Swipe through the art <span>›</span></p>
+      </div>
+      <div class="sc-info reveal">
         <div class="sc-cap" aria-live="polite">
           <p class="sc-id" id="scId"></p>
           <p class="sc-t serif" id="scT"></p>
@@ -450,7 +456,6 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
           <a class="btn" href="gallery.html?show=coll">Browse his collection</a>
         </div>
       </div>
-      <a class="sc-stage reveal" id="scStage" href="gallery.html" aria-label="Open piece"></a>
     </div>
     <div class="sc-strip" id="scStrip" aria-hidden="true"></div>
   </section>
@@ -486,8 +491,23 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
 
 <style>
 .sc{padding:120px 0 0;background:var(--paper);overflow:hidden}
-.sc-in{display:flex;flex-wrap:wrap-reverse;gap:56px;align-items:center}
-.sc-copy{flex:1 1 360px;min-width:0}
+.sc-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);grid-template-areas:"intro stage" "info stage";column-gap:56px}
+.sc-intro{grid-area:intro;align-self:end;min-width:0}
+.sc-info{grid-area:info;align-self:start;min-width:0}
+.sc-stage-wrap{grid-area:stage;min-width:0;position:relative}
+.sc-hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);margin:0;padding:8px 14px;background:#0B0A09b3;color:#F3EEE6;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;white-space:nowrap;pointer-events:none;transition:opacity .6s;backdrop-filter:blur(4px)}
+.sc-hint span{opacity:.6;margin:0 4px}
+.sc-hint.gone{opacity:0}
+@media(hover:hover) and (pointer:fine){.sc-hint{display:none}}
+@media(max-width:860px){
+  .sc-in{grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "stage" "info"}
+  .sc-intro{margin-bottom:28px}
+  .sc-stage{height:min(72vh,620px);min-height:360px}
+  .sc-info{display:flex;flex-direction:column}
+  .sc-ctrl{order:-1;margin-top:14px}
+  .sc-info .sc-cap{margin-top:18px;border-top:0;padding-top:0;min-height:0}
+  .sc-info .sc-ctrl{margin-top:14px}
+}
 .sc-h{margin:14px 0 0;font-size:clamp(44px,5.4vw,76px);line-height:1}
 .sc-p{margin:22px 0 0;font-size:17px;line-height:1.6;color:#3B3631;max-width:440px}
 .sc-cap{margin-top:40px;min-height:112px;border-top:1px solid var(--line);padding-top:20px}
@@ -500,7 +520,7 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
 .sc-bar{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}
 .sc-bar i{position:absolute;inset:0;background:var(--ink2);transform-origin:left;transform:scaleX(0)}
 .sc-bar i.run{transition:transform 6s linear;transform:scaleX(1)}
-.sc-stage{flex:1.4 1 480px;min-width:0;position:relative;display:block;height:min(76vh,760px);min-height:420px;background:var(--ink);overflow:hidden}
+.sc-stage{touch-action:pan-y;min-width:0;position:relative;display:block;height:min(76vh,760px);min-height:420px;background:var(--ink);overflow:hidden}
 .sc-stage figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.4s ease}
 .sc-stage figure.on{opacity:1}
 .sc-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(30px) brightness(.45);transform:scale(1.2)}
@@ -551,6 +571,14 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
     bar.classList.remove('run'); void bar.offsetWidth; if (!paused) bar.classList.add('run');
     clearTimeout(timer); if (!paused) timer = setTimeout(function () { go(k + 1); }, 6000);
   }
+  var tx, ty, swiped = false, hint = document.getElementById('scHint');
+  function hold() { paused = true; clearTimeout(timer); bar.classList.remove('run'); if (hint) hint.classList.add('gone'); }
+  stage.addEventListener('touchstart', function (ev) { var t = ev.touches[0]; tx = t.clientX; ty = t.clientY; swiped = false; }, { passive: true });
+  stage.addEventListener('touchend', function (ev) {
+    var t = ev.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) { swiped = true; hold(); go(dx < 0 ? k + 1 : k - 1); }
+  }, { passive: true });
+  stage.addEventListener('click', function (ev) { if (swiped) { ev.preventDefault(); swiped = false; } });
   document.getElementById('scPrev').onclick = function () { go(k - 1); };
   document.getElementById('scNext').onclick = function () { go(k + 1); };
   stage.addEventListener('mouseenter', function () { paused = true; clearTimeout(timer); bar.classList.remove('run'); });
