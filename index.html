@@ -476,7 +476,7 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
     <div class="wrap reveal" style="text-align:center">
       <span class="ko-mark" style="width:54px;height:54px;font-size:26px">KO</span>
       <h2 class="serif go-h">Every piece, hung together.</h2>
-      <p class="go-p"><strong id="nMade">6</strong> created by Kevin · <strong id="nColl">144</strong> from his collection. Tap the heart on anything that speaks to you, share a story, or ask about a piece.</p>
+      <p class="go-p">Tap the heart on anything that speaks to you, share a story, or ask about a piece.</p>
       <a class="btn btn-solid" href="gallery.html" style="margin-top:26px">Enter the gallery</a>
     </div>
   </section>
@@ -533,8 +533,6 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
 (function () {
   document.getElementById('ver').textContent = (window.KO_CONFIG || {}).version || '';
   var e = KO.esc, BY = KO.BY_ID;
-  document.getElementById('nMade').textContent = PIECES.filter(function (p) { return p.made; }).length;
-  document.getElementById('nColl').textContent = PIECES.filter(function (p) { return !p.made; }).length;
 
   /* showcase */
   var picks = ['KO-C007','KO-C003','KO-C091','KO-C005','KO-C010','KO-C080','KO-C067','KO-C054','KO-C002','KO-C130','KO-C062','KO-C092','KO-C036','KO-C096','KO-C004','KO-C068']

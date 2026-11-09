@@ -66,11 +66,10 @@
   var grid = document.getElementById('grid'), count = document.getElementById('count'), q = document.getElementById('q');
   document.getElementById('ver').textContent = (window.KO_CONFIG || {}).version || '';
   var f = new URLSearchParams(location.search).get('show') || 'all';
-  // Interleave Kevin's own work through the collection so the two read as one.
+  // Kevin's own work first, with the Night Garden prints hung together, then his collection.
   var made = PIECES.filter(function (p) { return p.made; }), coll = PIECES.filter(function (p) { return !p.made; });
-  var mixed = [], step = Math.max(1, Math.floor(coll.length / (made.length + 1)));
-  coll.forEach(function (p, i) { if (i % step === 0 && made.length) mixed.push(made.shift()); mixed.push(p); });
-  mixed = mixed.concat(made);
+  var ng = made.filter(function (p) { return p.series === 'Night Garden'; }), other = made.filter(function (p) { return p.series !== 'Night Garden'; });
+  var mixed = ng.concat(other, coll);
 
   function card(p) {
     return '<article class="card reveal">' +
