@@ -1111,7 +1111,7 @@ window.PIECES = [
   "id": "KO-C067",
   "made": false,
   "title": "Cart",
-  "artist": "M.A. Strandie '96",
+  "artist": "M.A. Strandell '96",
   "photos": [
    "images/nov4/IMG_1284.jpg",
    "images/nov4/IMG_1283.jpg",
@@ -1128,7 +1128,7 @@ window.PIECES = [
   "id": "KO-C068",
   "made": false,
   "title": "Coming Home",
-  "artist": "M.A. Strandie '96",
+  "artist": "M.A. Strandell '96",
   "photos": [
    "images/nov4/IMG_1290.jpg",
    "images/nov4/IMG_1289.jpg",
@@ -1145,7 +1145,7 @@ window.PIECES = [
   "id": "KO-C069",
   "made": false,
   "title": "Paradise",
-  "artist": "M.A. Strandie '96",
+  "artist": "M.A. Strandell '96",
   "photos": [
    "images/nov4/IMG_1295.jpg",
    "images/nov4/IMG_1296.jpg",
@@ -1160,7 +1160,7 @@ window.PIECES = [
   "id": "KO-C070",
   "made": false,
   "title": "Parabola (Rookery)",
-  "artist": "M.A. Strandie '96",
+  "artist": "M.A. Strandell '96",
   "photos": [
    "images/nov4/IMG_1302.jpg",
    "images/nov4/IMG_1299.jpg",
@@ -1177,7 +1177,7 @@ window.PIECES = [
   "id": "KO-C071",
   "made": false,
   "title": "Spinning Tops",
-  "artist": "M.A. Strandie",
+  "artist": "M.A. Strandell",
   "photos": [
    "images/nov4/IMG_1305.jpg",
    "images/nov4/IMG_1306.jpg",
@@ -1193,7 +1193,7 @@ window.PIECES = [
   "id": "KO-C072",
   "made": false,
   "title": "Home Improvement",
-  "artist": "M.A. Strandie",
+  "artist": "M.A. Strandell",
   "photos": [
    "images/nov4/IMG_1311.jpg",
    "images/nov4/IMG_1310.jpg",
@@ -1211,7 +1211,7 @@ window.PIECES = [
   "id": "KO-C073",
   "made": false,
   "title": "Bonaire",
-  "artist": "M.A. Strandie",
+  "artist": "M.A. Strandell",
   "photos": [
    "images/nov4/IMG_1317.jpg",
    "images/nov4/IMG_1318.jpg",
