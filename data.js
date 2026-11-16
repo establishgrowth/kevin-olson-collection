@@ -2126,5 +2126,545 @@ window.PIECES = [
   "video": "",
   "details": "Photograph, ed; 3/25",
   "series": ""
+ },
+ {
+  "id": "KO-C145",
+  "made": false,
+  "title": "Portrait in a White Robe",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/Shannon_port.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C146",
+  "made": false,
+  "title": "Flowers in Her Hair",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7018.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C147",
+  "made": false,
+  "title": "Motion",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7019.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C148",
+  "made": false,
+  "title": "Mirrored Face",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7020.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C149",
+  "made": false,
+  "title": "The Stairs",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7021.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C150",
+  "made": false,
+  "title": "Untitled (Self-Portrait), 1991",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7022.jpg"
+  ],
+  "video": "",
+  "details": "Gelatin silver print, 1991",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C151",
+  "made": false,
+  "title": "Golden Hand",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7023.jpg",
+   "images/sk/IMG_7024.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C152",
+  "made": false,
+  "title": "Untitled, 1991",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7025.jpg",
+   "images/sk/IMG_7026.jpg"
+  ],
+  "video": "",
+  "details": "Gelatin silver print, 1991",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C153",
+  "made": false,
+  "title": "Hands Over the Face",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7027.jpg",
+   "images/sk/IMG_7028.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C154",
+  "made": false,
+  "title": "Bowed Head",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7029.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C155",
+  "made": false,
+  "title": "Girl in Shadow",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7030.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C156",
+  "made": false,
+  "title": "In the Reeds",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7031.jpg",
+   "images/sk/IMG_7032.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C157",
+  "made": false,
+  "title": "Bare Tree",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7033.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C158",
+  "made": false,
+  "title": "The Corner",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7034.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C159",
+  "made": false,
+  "title": "Hand on Silk",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7035.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C160",
+  "made": false,
+  "title": "Blue Ear",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7036.jpg"
+  ],
+  "video": "",
+  "details": "Color print",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C161",
+  "made": false,
+  "title": "Reaching",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7037.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C162",
+  "made": false,
+  "title": "Blue Light",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7038.jpg"
+  ],
+  "video": "",
+  "details": "Color print",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C163",
+  "made": false,
+  "title": "Floating Figure",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7039.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C164",
+  "made": false,
+  "title": "Torso Studies",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7040.jpg",
+   "images/sk/IMG_7041.jpg",
+   "images/sk/IMG_7042.jpg",
+   "images/sk/IMG_7043.jpg",
+   "images/sk/IMG_7044.jpg",
+   "images/sk/IMG_7045.jpg",
+   "images/sk/IMG_7046.jpg",
+   "images/sk/IMG_7047.jpg",
+   "images/sk/IMG_7048.jpg"
+  ],
+  "video": "",
+  "details": "Eight strips of five frames each, on deckled paper",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C165",
+  "made": false,
+  "title": "Reclining Figure",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7049.jpg"
+  ],
+  "video": "",
+  "details": "Photograph, signed",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C166",
+  "made": false,
+  "title": "Gulls",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7050.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C167",
+  "made": false,
+  "title": "Resting Head",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7051.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C168",
+  "made": false,
+  "title": "Nude with Hand",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7053.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C169",
+  "made": false,
+  "title": "Long Face",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7054.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C170",
+  "made": false,
+  "title": "Orange Eye",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7055.jpg"
+  ],
+  "video": "",
+  "details": "Color print",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C171",
+  "made": false,
+  "title": "Violet Face",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7056.jpg"
+  ],
+  "video": "",
+  "details": "Color print",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C172",
+  "made": false,
+  "title": "Blue Hand",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7057.jpg"
+  ],
+  "video": "",
+  "details": "Color print",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C173",
+  "made": false,
+  "title": "Blue Portrait",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7060.jpg"
+  ],
+  "video": "",
+  "details": "Color print",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C174",
+  "made": false,
+  "title": "The Neck",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7064.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C175",
+  "made": false,
+  "title": "Pale Face in Black",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7065.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C176",
+  "made": false,
+  "title": "Dark Eyes",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7066.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C177",
+  "made": false,
+  "title": "Grid of Faces",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7067.jpg"
+  ],
+  "video": "",
+  "details": "Color print",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C178",
+  "made": false,
+  "title": "Collage of Frames",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7070.jpg"
+  ],
+  "video": "",
+  "details": "Photo collage",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C179",
+  "made": false,
+  "title": "Curled Figure",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7073.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C180",
+  "made": false,
+  "title": "Dancer on the Floor",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7074.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C181",
+  "made": false,
+  "title": "Face Study I",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7076.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C182",
+  "made": false,
+  "title": "Face Study II",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7077.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C183",
+  "made": false,
+  "title": "Face Study III",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7080.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C184",
+  "made": false,
+  "title": "Hand in Blue",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7085.jpg"
+  ],
+  "video": "",
+  "details": "Color print",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C185",
+  "made": false,
+  "title": "Stitched Strip",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7086.jpg"
+  ],
+  "video": "",
+  "details": "Photographs stitched together with thread",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C186",
+  "made": false,
+  "title": "Feet",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7087.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C187",
+  "made": false,
+  "title": "Figure in the Dark",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/IMG_7090.jpg"
+  ],
+  "video": "",
+  "details": "Photograph",
+  "series": "Shannon Kennedy Portfolio"
+ },
+ {
+  "id": "KO-C188",
+  "made": false,
+  "title": "Small Blue Portrait",
+  "artist": "Shannon Kennedy",
+  "photos": [
+   "images/sk/SK_Portfolio.jpg"
+  ],
+  "video": "",
+  "details": "Color print, matted",
+  "series": "Shannon Kennedy Portfolio"
  }
 ];
