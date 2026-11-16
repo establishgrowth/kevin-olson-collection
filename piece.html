@@ -42,6 +42,17 @@
 .pn a{text-decoration:none;color:var(--mute);min-height:44px;display:inline-flex;align-items:center}
 .pn a:hover{color:var(--ink2)}
 @media(max-width:900px){.side{position:static}}
+.notes{padding-bottom:110px}
+.notes:empty{display:none}
+.notes .nh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;border-top:1px solid var(--line);padding-top:44px;margin-bottom:28px}
+.notes h2{margin:8px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,48px);line-height:1}
+.notes .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:20px}
+.note{background:#FDFBF7;border:1px solid var(--line);padding:26px 26px 22px;position:relative}
+.note:before{content:"\201C";position:absolute;left:20px;top:2px;font-family:var(--serif);font-size:64px;color:var(--tan);line-height:1}
+.note q{display:block;quotes:none;margin-top:22px;font-family:var(--serif);font-size:22px;line-height:1.35;color:var(--ink2)}
+.note .by{margin:18px 0 0;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--mute)}
+.pc{padding-bottom:64px}
+
 </style>
 </head>
 <body>
@@ -51,11 +62,13 @@
 </div></div>
 
 <main class="wrap pc" id="main"></main>
+<section class="wrap notes" id="notes" aria-label="Notes from friends and loved ones"></section>
 
 <footer class="foot"><div class="wrap"><span>The Kevin Olson Collection · Offered by his family</span><span>Created by Elliot Ussery</span><span id="ver"></span></div></footer>
 
 <script src="config.js"></script>
 <script src="data.js"></script>
+<script src="notes.js"></script>
 <script src="site.js"></script>
 <script>
 (function () {
@@ -111,6 +124,13 @@
     if (document.querySelector('.modal.open,.drawer.open') || /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
     if (ev.key === 'ArrowRight') show(cur + 1); if (ev.key === 'ArrowLeft') show(cur - 1);
   });
+  var notes = (window.NOTES || {})[p.id] || [], ns = document.getElementById('notes');
+  ns.innerHTML = '<div class="nh"><div><p class="eyebrow">' + (notes.length ? notes.length + (notes.length === 1 ? ' note' : ' notes') : 'No notes yet') + '</p>' +
+    '<h2>Notes from friends <em>&amp; loved ones</em></h2></div>' +
+    '<button type="button" class="btn" data-form="story" data-id="' + p.id + '">' + (notes.length ? 'Add your own' : 'Be the first to share a memory') + '</button></div>' +
+    (notes.length ? '<div class="list">' + notes.map(function (n) {
+      return '<figure class="note" style="margin:0"><q>' + e(n.text) + '</q><p class="by">' + e(n.name) + ' \u00b7 ' + e(n.date) + '</p></figure>';
+    }).join('') + '</div>' : '');
   show(0); KO.refresh();
 })();
 </script>

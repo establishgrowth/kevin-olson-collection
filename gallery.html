@@ -60,6 +60,7 @@
 
 <script src="config.js"></script>
 <script src="data.js"></script>
+<script src="notes.js"></script>
 <script src="site.js"></script>
 <script>
 (function () {
@@ -78,7 +79,7 @@
       '<button type="button" class="sel" data-select="' + p.id + '" data-title="' + KO.esc(p.title) + '" aria-pressed="false"></button>' +
       '<div class="meta"><div style="min-width:0"><p class="id">' + p.id + (p.series ? ' · ' + KO.esc(p.series) : '') + '</p>' +
       '<p class="t"><a href="piece.html?id=' + p.id + '">' + KO.esc(p.title) + '</a></p>' +
-      (p.artist ? '<p class="a">' + KO.esc(p.artist) + '</p>' : '') + '</div><span class="tbd">Price TBD</span></div></article>';
+      (p.artist ? '<p class="a">' + KO.esc(p.artist) + '</p>' : '') + ((window.NOTES || {})[p.id] ? '<p class="a" style="color:var(--brick)">' + NOTES[p.id].length + (NOTES[p.id].length === 1 ? ' note' : ' notes') + ' from loved ones</p>' : '') + '</div><span class="tbd">Price TBD</span></div></article>';
   }
   function render() {
     var term = q.value.trim().toLowerCase();
