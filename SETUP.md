@@ -6,7 +6,7 @@ A private preview of the gallery for Eric and close friends.
 
 | File | What it is |
 |---|---|
-| `index.html` | Homepage: opening, "From his collection" showcase, Night Garden prints coming soon |
+| `index.html` | Homepage: opening, In memory, The Evening (Nov 22 photos and films), "From his collection" showcase, Night Garden |
 | `gallery.html` | All 150 pieces together, with filters, search and the heart (select) button |
 | `piece.html` | One page per piece (`piece.html?id=KO-C007`), with photos, Inquire, Share a story |
 | `data.js` | The catalog: every piece, its ID, title, artist and photos (made from the master spreadsheet) |
