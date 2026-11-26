@@ -486,6 +486,30 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
         <p class="ev-count" id="evCount"></p>
       </div>
       <div class="ev-grid" id="evGrid"></div>
+
+      <div class="up reveal" id="share-photos">
+        <div class="up-copy">
+          <p class="eyebrow gold">Were you there?</p>
+          <h3 class="serif">Share your photos <em>from the night</em></h3>
+          <p>If you took pictures on November 22, or have photos of Kevin you’d like the family to have, add them here. They go straight to the family’s private folder; nothing is posted on the site without their say.</p>
+        </div>
+        <form class="up-form" id="upForm" novalidate>
+          <label class="up-drop" id="upDrop" for="upFiles">
+            <input id="upFiles" type="file" accept="image/*" multiple>
+            <span class="up-ico" aria-hidden="true">+</span>
+            <span class="up-t">Choose photos<span class="up-or"> or drop them here</span></span>
+            <span class="up-s">Up to 20 at a time</span>
+          </label>
+          <div class="up-thumbs" id="upThumbs" aria-live="polite"></div>
+          <div class="up-row">
+            <div class="f"><label for="upFirst">Your name</label><input id="upFirst" name="first" autocomplete="name" required></div>
+            <div class="f"><label for="upEmail">Email (optional)</label><input id="upEmail" name="email" type="email" autocomplete="email"></div>
+          </div>
+          <div class="f"><label for="upNote">A note (optional)</label><input id="upNote" name="note" placeholder="Who’s in them, or a memory from the night"></div>
+          <p class="err" id="upErr" aria-live="polite"></p>
+          <div class="up-act"><span class="up-status" id="upStatus" aria-live="polite"></span><button type="submit" class="btn btn-paper" id="upBtn">Send photos</button></div>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -667,6 +691,35 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
 .ev-item:focus-visible,.ev-hero:focus-visible{outline:2px solid #C2A36B;outline-offset:3px}
 @media(max-width:900px){.ev-top,.ev-film{grid-template-columns:1fr;gap:48px}.ev-film-v{max-width:360px}.ev{padding:90px 0 100px}.ev-film{margin-top:80px}.ev-gh{margin-top:80px}}
 
+
+.up{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:64px;margin-top:120px;padding:56px;border:1px solid rgba(194,163,107,.45);background:linear-gradient(160deg,rgba(194,163,107,.07),rgba(194,163,107,0) 60%)}
+.up-copy h3{margin:16px 0 20px;font-size:clamp(40px,4.4vw,64px);line-height:.98;font-weight:400;color:#F6F1E8}
+.up-copy h3 em{color:#D9C39A}
+.up-copy p:not(.eyebrow){font-size:17px;line-height:1.7;color:#CFC5B8;margin:0;max-width:460px}
+.up-drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:180px;padding:24px;border:1px dashed rgba(194,163,107,.7);cursor:pointer;text-align:center;transition:background .25s,border-color .25s}
+.up-drop:hover,.up-drop.over{background:rgba(194,163,107,.1);border-color:#C2A36B}
+.up-drop input{position:absolute;width:1px;height:1px;opacity:0}
+.up-drop:focus-within{outline:2px solid #C2A36B;outline-offset:2px}
+.up-ico{width:46px;height:46px;border:1px solid #C2A36B;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:#C2A36B;font-weight:300}
+.up-t{font-family:var(--serif);font-size:24px;color:#EDE4D6}
+.up-or{color:#A79C8E}
+.up-s{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#A79C8E}
+.up-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:8px;margin:14px 0 4px}
+.up-thumbs:empty{display:none}
+.up-thumbs figure{margin:0;position:relative;aspect-ratio:1;background:#1A1714;overflow:hidden}
+.up-thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.up-thumbs figure.done:after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(8,7,6,.55);color:#D9C39A;font-size:24px}
+.up-thumbs figure.busy{opacity:.5}
+.up-thumbs figure.bad:after{content:"!";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(142,59,42,.6);color:#fff;font-size:22px}
+.up-thumbs button{position:absolute;right:3px;top:3px;width:24px;height:24px;border:0;border-radius:50%;background:rgba(8,7,6,.75);color:#EDE4D6;cursor:pointer;font-size:14px;line-height:1}
+.up-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.up .f label{color:#A79C8E}
+.up .f input{background:rgba(243,238,230,.06);border-color:rgba(194,163,107,.4);color:#F3EEE6}
+.up .f input::placeholder{color:#7D7368}
+.up .err{color:#E0A08F}
+.up-act{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.up-status{font-size:13px;color:#CFC5B8}
+@media(max-width:900px){.up{grid-template-columns:1fr;gap:36px;padding:32px 22px;margin-top:80px}.up-row{grid-template-columns:1fr}}
 .lb{position:fixed;inset:0;z-index:80;background:rgba(6,5,4,.96);display:flex;align-items:center;justify-content:center;padding:60px 70px}
 .lb[hidden]{display:none}
 .lb-f{margin:0;display:flex;flex-direction:column;align-items:center;max-width:100%;max-height:100%}
@@ -745,7 +798,6 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
     { src: 'images/event/memorial-table.jpg', c: 'Candles, flowers and photographs' },
     { src: 'images/event/wall-portrait.jpg', c: 'Kevin’s portrait, at the heart of the room' },
     { src: 'images/event/night-garden-wall-2.jpg', c: 'The Night Garden, with Sábado at center' },
-    { src: 'images/event/sandy-and-abby.jpg', c: 'Sandy and Abby' },
     { v: 'images/event/video2.mp4', src: 'images/event/video2.jpg', c: 'The room, as guests arrived' },
     { src: 'images/event/collection-wall.jpg', c: 'Photographs from his collection' },
     { src: 'images/event/family-photos.jpg', c: 'A lifetime of photographs' },
@@ -753,7 +805,6 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
     { src: 'images/event/sandy-vanessa-sils.jpg', c: 'Sandy, Vanessa and family' },
     { v: 'images/event/video3.mp4', src: 'images/event/video3.jpg', c: 'The memorial table' },
     { src: 'images/event/night-garden-wall.jpg', c: 'The Night Garden, hung together' },
-    { src: 'images/event/jim-and-sandy.jpg', c: 'Jim, our photographer, with Sandy' },
     { src: 'images/event/venue-wall.jpg', c: 'The gallery walls' }
   ];
   var evGrid = document.getElementById('evGrid');
@@ -784,6 +835,73 @@ a{color:#1A1917}a:hover{color:#8E3B2A}
   });
   var lx; lb.addEventListener('touchstart', function (ev) { lx = ev.touches[0].clientX; }, { passive: true });
   lb.addEventListener('touchend', function (ev) { var dx = ev.changedTouches[0].clientX - lx; if (Math.abs(dx) > 50) lbShow(dx < 0 ? li + 1 : li - 1); }, { passive: true });
+
+  /* share your photos: each photo is resized in the browser, then sent to the family's Google Drive */
+  (function () {
+    var form = document.getElementById('upForm'), input = document.getElementById('upFiles'), drop = document.getElementById('upDrop');
+    var thumbs = document.getElementById('upThumbs'), err = document.getElementById('upErr'), status = document.getElementById('upStatus'), btn = document.getElementById('upBtn');
+    var files = [], busy = false, CFG = window.KO_CONFIG || {};
+    function add(list) {
+      Array.prototype.forEach.call(list, function (f) { if (/^image\//.test(f.type) || /\.(heic|heif)$/i.test(f.name)) files.push(f); });
+      if (files.length > 20) { files = files.slice(0, 20); err.textContent = 'Up to 20 photos at a time. Send the rest after these.'; } else err.textContent = '';
+      draw();
+    }
+    function draw() {
+      thumbs.innerHTML = files.map(function (f, i) { return '<figure data-i="' + i + '"><img alt="" src="' + URL.createObjectURL(f) + '">' + (busy ? '' : '<button type="button" aria-label="Remove photo ' + (i + 1) + '" data-rm="' + i + '">×</button>') + '</figure>'; }).join('');
+      status.textContent = files.length ? files.length + (files.length === 1 ? ' photo' : ' photos') + ' ready' : '';
+    }
+    input.addEventListener('change', function () { add(input.files); input.value = ''; });
+    thumbs.addEventListener('click', function (ev) { var b = ev.target.closest('[data-rm]'); if (b && !busy) { files.splice(+b.getAttribute('data-rm'), 1); draw(); } });
+    ['dragenter', 'dragover'].forEach(function (t) { drop.addEventListener(t, function (ev) { ev.preventDefault(); drop.classList.add('over'); }); });
+    ['dragleave', 'drop'].forEach(function (t) { drop.addEventListener(t, function (ev) { ev.preventDefault(); drop.classList.remove('over'); }); });
+    drop.addEventListener('drop', function (ev) { if (ev.dataTransfer) add(ev.dataTransfer.files); });
+    function toB64(blob) { return new Promise(function (ok, no) { var r = new FileReader(); r.onload = function () { ok(String(r.result).split(',')[1]); }; r.onerror = no; r.readAsDataURL(blob); }); }
+    function shrink(f) {
+      // Resize to at most 2400px as a JPEG. If this browser can't read the file (some HEIC), send it as it is.
+      return new Promise(function (ok) {
+        var img = new Image(), url = URL.createObjectURL(f);
+        img.onload = function () {
+          var k = Math.min(1, 2400 / Math.max(img.naturalWidth, img.naturalHeight)), c = document.createElement('canvas');
+          c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url);
+          c.toBlob(function (b) { ok(b ? { blob: b, mime: 'image/jpeg', name: f.name.replace(/\.[^.]+$/, '') + '.jpg' } : { blob: f, mime: f.type || 'image/heic', name: f.name }); }, 'image/jpeg', 0.86);
+        };
+        img.onerror = function () { URL.revokeObjectURL(url); ok({ blob: f, mime: f.type || 'image/heic', name: f.name }); };
+        img.src = url;
+      });
+    }
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault(); if (busy) return;
+      var first = form.first.value.trim(), email = form.email.value.trim(), note = form.note.value.trim();
+      if (!files.length) { err.textContent = 'Please choose at least one photo.'; return; }
+      if (!first) { err.textContent = 'Please add your name so the family knows who shared them.'; form.first.focus(); return; }
+      if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = 'That email doesn’t look quite right.'; form.email.focus(); return; }
+      if (!CFG.endpoint) { err.textContent = 'Photo sharing isn’t connected yet.'; return; }
+      err.textContent = ''; busy = true; btn.disabled = true; draw();
+      var n = files.length, i = 0, okCount = 0, batch = Date.now().toString(36), parts = first.split(' ');
+      (function next() {
+        if (i >= n) {
+          busy = false; btn.disabled = false;
+          status.textContent = okCount === n ? 'Thank you, ' + parts[0] + '. Your ' + (n === 1 ? 'photo is' : n + ' photos are') + ' with the family.' : okCount + ' of ' + n + ' sent. Please try the others again.';
+          var failed = files.filter(function (_, k) { return thumbs.children[k] && thumbs.children[k].classList.contains('bad'); });
+          if (okCount === n) { files = []; setTimeout(function () { thumbs.innerHTML = ''; }, 2500); } else { files = failed; setTimeout(draw, 2500); }
+          return;
+        }
+        var fig = thumbs.children[i]; if (fig) fig.classList.add('busy');
+        status.textContent = 'Sending ' + (i + 1) + ' of ' + n + '…';
+        shrink(files[i]).then(function (o) {
+          if (o.blob.size > 14 * 1024 * 1024) throw new Error('too big');
+          return toB64(o.blob).then(function (b64) {
+            var body = new URLSearchParams({ photo: b64, mime: o.mime, name: o.name, first: parts[0], last: parts.slice(1).join(' '), email: email, note: note,
+              batch: batch, index: String(i), count: String(n), page: location.href, version: CFG.version || '' });
+            return fetch(CFG.endpoint, { method: 'POST', mode: 'no-cors', body: body });
+          });
+        }).then(function () { okCount++; if (fig) { fig.classList.remove('busy'); fig.classList.add('done'); } },
+                function () { if (fig) { fig.classList.remove('busy'); fig.classList.add('bad'); } })
+          .then(function () { i++; next(); });
+      })();
+    });
+  })();
   KO.reveal();
 })();
 </script>
