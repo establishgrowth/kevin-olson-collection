@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Kevin Olson Collection">
 <meta property="og:title" content="The Gallery · The Kevin Olson Collection">
-<meta property="og:description" content="In loving memory of Kevin Olson: the art he made, the art he lived with, and the evening we gathered to remember him.">
+<meta property="og:description" content="The art Kevin made and the art he collected, gathered in one place. Browse the gallery and mark the pieces that mean something to you.">
 <meta property="og:url" content="https://establishgrowth.github.io/kevin-olson-collection/gallery.html">
 <meta property="og:image" content="https://establishgrowth.github.io/kevin-olson-collection/images/share-preview.jpg">
 <meta property="og:image:width" content="1200">
@@ -32,18 +32,19 @@
 <body>
 <div class="topbar"><div class="wrap">
   <a class="brand" href="index.html"><span class="ko-mark">KO</span><span>The Kevin Olson Collection</span></a>
-  <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="gallery.html" aria-current="page">The Gallery</a><a href="index.html#evening">The Evening</a></nav>
+  <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="gallery.html" aria-current="page">The Gallery</a><a href="index.html#prints">Night Garden prints</a></nav>
 </div></div>
 
 <header class="ghead"><div class="wrap">
   <p class="eyebrow r" style="color:var(--tan);padding-top:40px">The Kevin Olson Collection</p>
   <h1 class="r" style="animation-delay:.08s">The <em>Gallery</em></h1>
-  <p class="lede r" style="animation-delay:.16s">The art Kevin made and the art he chose to live with, hung together. Open any piece to see it closely and read the memories friends and family have left with it.</p>
+  <p class="lede r" style="animation-delay:.16s">The art Kevin made and the art he chose to live with, hung together. Tap the heart on anything that speaks to you, open a piece to see it closely, share a story, or ask about it.</p>
   <div class="tools r" style="animation-delay:.24s">
     <div class="filters" role="group" aria-label="Show">
       <button type="button" class="pill" data-f="all" aria-pressed="true">Everything</button>
       <button type="button" class="pill" data-f="made" aria-pressed="false">Created by Kevin</button>
       <button type="button" class="pill" data-f="coll" aria-pressed="false">His collection</button>
+      <button type="button" class="pill" data-f="sel" aria-pressed="false">My selections</button>
     </div>
     <label style="position:absolute;left:-9999px" for="q">Search the gallery</label>
     <input id="q" class="search" type="search" placeholder="Search title, artist or ID">
@@ -55,7 +56,7 @@
   <div class="grid" id="grid"></div>
 </main>
 
-<footer class="foot"><div class="wrap"><span>The Kevin Olson Collection · In loving memory</span><span>Created by Elliot Ussery</span><span id="ver"></span></div></footer>
+<footer class="foot"><div class="wrap"><span>The Kevin Olson Collection · Offered by his family</span><span>Created by Elliot Ussery</span><span id="ver"></span></div></footer>
 
 <script src="config.js"></script>
 <script src="data.js"></script>
@@ -65,7 +66,7 @@
 (function () {
   var grid = document.getElementById('grid'), count = document.getElementById('count'), q = document.getElementById('q');
   document.getElementById('ver').textContent = (window.KO_CONFIG || {}).version || '';
-  var f = new URLSearchParams(location.search).get('show') || 'all'; if (['all','made','coll'].indexOf(f) < 0) f = 'all';
+  var f = new URLSearchParams(location.search).get('show') || 'all';
   // Kevin's own work first, with the Night Garden prints hung together, then his collection.
   var made = PIECES.filter(function (p) { return p.made; }), coll = PIECES.filter(function (p) { return !p.made; });
   var ng = made.filter(function (p) { return p.series === 'Night Garden'; }), other = made.filter(function (p) { return p.series !== 'Night Garden'; });
@@ -75,20 +76,22 @@
     return '<article class="card reveal">' +
       '<a class="cover" href="piece.html?id=' + p.id + '"><img src="' + p.photos[0] + '" alt="' + KO.esc(p.title) + (p.artist ? ' by ' + KO.esc(p.artist) : '') + '" loading="lazy"></a>' +
       (p.made ? '<span class="badge"><span class="dot"></span>Created by Kevin</span>' : '') +
+      '<button type="button" class="sel" data-select="' + p.id + '" data-title="' + KO.esc(p.title) + '" aria-pressed="false"></button>' +
       '<div class="meta"><div style="min-width:0"><p class="id">' + p.id + (p.series ? ' · ' + KO.esc(p.series) : '') + '</p>' +
       '<p class="t"><a href="piece.html?id=' + p.id + '">' + KO.esc(p.title) + '</a></p>' +
-      (p.artist ? '<p class="a">' + KO.esc(p.artist) + '</p>' : '') + ((window.NOTES || {})[p.id] ? '<p class="a" style="color:var(--brick)">' + NOTES[p.id].length + (NOTES[p.id].length === 1 ? ' note' : ' notes') + ' from loved ones</p>' : '') + '</div></div></article>';
+      (p.artist ? '<p class="a">' + KO.esc(p.artist) + '</p>' : '') + ((window.NOTES || {})[p.id] ? '<p class="a" style="color:var(--brick)">' + NOTES[p.id].length + (NOTES[p.id].length === 1 ? ' note' : ' notes') + ' from loved ones</p>' : '') + '</div><span class="tbd">Price TBD</span></div></article>';
   }
   function render() {
     var term = q.value.trim().toLowerCase();
     var list = mixed.filter(function (p) {
       if (f === 'made' && !p.made) return false;
       if (f === 'coll' && p.made) return false;
+      if (f === 'sel' && !KO.isSel(p.id)) return false;
       if (term && (p.title + ' ' + p.artist + ' ' + p.id + ' ' + p.series).toLowerCase().indexOf(term) < 0) return false;
       return true;
     });
     grid.innerHTML = list.map(card).join('');
-    count.textContent = list.length + (list.length === 1 ? ' work' : ' works');
+    count.textContent = list.length + (list.length === 1 ? ' work' : ' works') + (f === 'sel' && !list.length ? ' — tap the heart on any piece to add it here' : '');
     document.querySelectorAll('.pill').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-f') === f ? 'true' : 'false'); });
     KO.refresh(); KO.reveal(grid);
   }
@@ -96,6 +99,7 @@
     b.addEventListener('click', function () { f = b.getAttribute('data-f'); history.replaceState(null, '', f === 'all' ? 'gallery.html' : 'gallery.html?show=' + f); render(); });
   });
   q.addEventListener('input', render);
+  document.addEventListener('click', function (e) { if (f === 'sel' && e.target.closest('[data-select],[data-remove]')) setTimeout(render, 0); });
   render();
 })();
 </script>

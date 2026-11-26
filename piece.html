@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Kevin Olson Collection">
 <meta property="og:title" content="The Kevin Olson Collection">
-<meta property="og:description" content="In loving memory of Kevin Olson: the art he made, the art he lived with, and the evening we gathered to remember him.">
+<meta property="og:description" content="The art Kevin made and the art he collected, gathered in one place. Browse the gallery and mark the pieces that mean something to you.">
 <meta property="og:url" content="https://establishgrowth.github.io/kevin-olson-collection/">
 <meta property="og:image" content="https://establishgrowth.github.io/kevin-olson-collection/images/share-preview.jpg">
 <meta property="og:image:width" content="1200">
@@ -58,13 +58,13 @@
 <body>
 <div class="topbar"><div class="wrap">
   <a class="brand" href="index.html"><span class="ko-mark">KO</span><span>The Kevin Olson Collection</span></a>
-  <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="gallery.html">The Gallery</a><a href="index.html#evening">The Evening</a></nav>
+  <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="gallery.html">The Gallery</a><a href="index.html#prints">Night Garden prints</a></nav>
 </div></div>
 
 <main class="wrap pc" id="main"></main>
 <section class="wrap notes" id="notes" aria-label="Notes from friends and loved ones"></section>
 
-<footer class="foot"><div class="wrap"><span>The Kevin Olson Collection · In loving memory</span><span>Created by Elliot Ussery</span><span id="ver"></span></div></footer>
+<footer class="foot"><div class="wrap"><span>The Kevin Olson Collection · Offered by his family</span><span>Created by Elliot Ussery</span><span id="ver"></span></div></footer>
 
 <script src="config.js"></script>
 <script src="data.js"></script>
@@ -96,9 +96,11 @@
       '<dl><dt>ID</dt><dd>' + p.id + '</dd>' +
       (p.series ? '<dt>Series</dt><dd>' + e(p.series) + '</dd>' : '') +
       (p.details ? '<dt>Details</dt><dd>' + e(p.details) + '</dd>' : '') +
-      '</dl>' +
+      '<dt>Price</dt><dd>TBD</dd></dl>' +
       '<div class="acts">' +
-        '<button type="button" class="btn btn-solid" data-form="story" data-id="' + p.id + '">Share a memory</button>' +
+        '<button type="button" class="btn btn-solid" data-select="' + p.id + '" aria-pressed="false"></button>' +
+        '<div class="two"><button type="button" class="btn" data-form="inquire" data-id="' + p.id + '">Inquire</button>' +
+        '<button type="button" class="btn" data-form="story" data-id="' + p.id + '">Share a story</button></div>' +
       '</div>' +
       '<div class="pn"><a href="piece.html?id=' + prev.id + '">← ' + e(prev.title) + '</a><a href="piece.html?id=' + next.id + '" style="text-align:right">' + e(next.title) + ' →</a></div>' +
       '<p style="margin-top:18px"><a href="gallery.html" style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--mute)">← Back to the gallery</a></p>' +
@@ -125,7 +127,7 @@
   var notes = (window.NOTES || {})[p.id] || [], ns = document.getElementById('notes');
   ns.innerHTML = '<div class="nh"><div><p class="eyebrow">' + (notes.length ? notes.length + (notes.length === 1 ? ' note' : ' notes') : 'No notes yet') + '</p>' +
     '<h2>Notes from friends <em>&amp; loved ones</em></h2></div>' +
-    '<button type="button" class="btn" data-form="story" data-id="' + p.id + '">' + (notes.length ? 'Add your own memory' : 'Be the first to share a memory') + '</button></div>' +
+    '<button type="button" class="btn" data-form="story" data-id="' + p.id + '">' + (notes.length ? 'Add your own' : 'Be the first to share a memory') + '</button></div>' +
     (notes.length ? '<div class="list">' + notes.map(function (n) {
       return '<figure class="note" style="margin:0"><q>' + e(n.text) + '</q><p class="by">' + e(n.name) + ' \u00b7 ' + e(n.date) + '</p></figure>';
     }).join('') + '</div>' : '');

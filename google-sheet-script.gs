@@ -109,8 +109,10 @@ function sendEmails_(rows) {
   }
   if (r0.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(r0.email)) {
     MailApp.sendEmail(r0.email, 'Thank you, from Kevin Olson\'s family',
-      'Dear ' + (r0.firstName || 'friend') + ',\n\nThank you for sharing your memory of Kevin. ' +
-      'We received:\n\n' + lines +
-      '\n\nWe\'ll read every word. Memories like yours are how his collection keeps its story.\n\nWith gratitude,\nKevin\'s family');
+      'Dear ' + (r0.firstName || 'friend') + ',\n\n' +
+      (rows.every(function (r) { return r.type === 'Story'; })
+        ? 'Thank you for sharing your memory of Kevin. We received:\n\n' + lines + '\n\nWe\'ll read every word. Memories like yours are how his collection keeps its story.'
+        : 'Thank you for showing your interest in Kevin\'s collection. We received your note' + (rows.length > 1 ? 's' : '') + ' about:\n\n' + lines + '\n\nWe\'ll read every word and be in touch with you personally.') +
+      '\n\nWith gratitude,\nKevin\'s family');
   }
 }

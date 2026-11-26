@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Kevin Olson Collection</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Kevin Olson Collection">
+<meta property="og:title" content="The Kevin Olson Collection">
+<meta property="og:description" content="In loving memory of Kevin Olson: the art he made, the art he lived with, and the evening we gathered to remember him.">
+<meta property="og:url" content="https://establishgrowth.github.io/kevin-olson-collection/v2/">
+<meta property="og:image" content="https://establishgrowth.github.io/kevin-olson-collection/images/share-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Kevin Olson Collection homepage, with one of Kevin's Night Garden flowers">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://establishgrowth.github.io/kevin-olson-collection/images/share-preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+.pc{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;padding-top:44px;padding-bottom:110px}
+.viewer{flex:999 1 560px;min-width:0}
+.stage{position:relative;background:var(--paper3);height:min(78vh,820px);min-height:380px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stage img,.stage video{max-width:100%;max-height:100%;object-fit:contain;display:block;animation:fadeIn .5s ease}
+@keyframes fadeIn{from{opacity:0;transform:scale(.985)}}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:none;background:rgba(243,238,230,.9);color:var(--ink);font-size:22px;cursor:pointer}
+.arrow.l{left:12px}.arrow.r{right:12px}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px}
+.thumbs button{flex:0 0 74px;height:74px;padding:0;border:2px solid transparent;background:var(--paper3);cursor:pointer;opacity:.7}
+.thumbs button[aria-current="true"]{border-color:var(--ink2);opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.side{flex:1 1 340px;min-width:0;position:sticky;top:24px}
+.side h1{margin:10px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,64px);line-height:1}
+.side .artist{margin:12px 0 0;font-size:17px;color:var(--ink2)}
+.side dl{display:grid;grid-template-columns:96px 1fr;row-gap:10px;margin:26px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:15px}
+.side dt{color:var(--mute)}.side dd{margin:0}
+.acts{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.acts .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pn{display:flex;justify-content:space-between;gap:12px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.pn a{text-decoration:none;color:var(--mute);min-height:44px;display:inline-flex;align-items:center}
+.pn a:hover{color:var(--ink2)}
+@media(max-width:900px){.side{position:static}}
+.notes{padding-bottom:110px}
+.notes:empty{display:none}
+.notes .nh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;border-top:1px solid var(--line);padding-top:44px;margin-bottom:28px}
+.notes h2{margin:8px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,48px);line-height:1}
+.notes .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:20px}
+.note{background:#FDFBF7;border:1px solid var(--line);padding:26px 26px 22px;position:relative}
+.note:before{content:"\201C";position:absolute;left:20px;top:2px;font-family:var(--serif);font-size:64px;color:var(--tan);line-height:1}
+.note q{display:block;quotes:none;margin-top:22px;font-family:var(--serif);font-size:22px;line-height:1.35;color:var(--ink2)}
+.note .by{margin:18px 0 0;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--mute)}
+.pc{padding-bottom:64px}
+
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="ko-mark">KO</span><span>The Kevin Olson Collection</span></a>
+  <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="gallery.html">The Gallery</a><a href="index.html#evening">The Evening</a></nav>
+</div></div>
+
+<main class="wrap pc" id="main"></main>
+<section class="wrap notes" id="notes" aria-label="Notes from friends and loved ones"></section>
+
+<footer class="foot"><div class="wrap"><span>The Kevin Olson Collection · In loving memory</span><span>Created by Elliot Ussery</span><span id="ver"></span></div></footer>
+
+<script src="config.js"></script>
+<script src="../data.js"></script>
+<script>PIECES.forEach(function (p) { p.photos = p.photos.map(function (s) { return "../" + s; }); if (p.video) p.video = "../" + p.video; });</script>
+<script src="../notes.js"></script>
+<script src="site.js"></script>
+<script>
+(function () {
+  document.getElementById('ver').textContent = (window.KO_CONFIG || {}).version || '';
+  var id = new URLSearchParams(location.search).get('id'), i = PIECES.findIndex(function (p) { return p.id === id; });
+  var main = document.getElementById('main');
+  if (i < 0) { main.innerHTML = '<div style="padding:80px 0"><h1 class="serif" style="font-size:48px;margin:0">Piece not found</h1><p><a class="btn" href="gallery.html">Back to the gallery</a></p></div>'; return; }
+  var p = PIECES[i], prev = PIECES[(i - 1 + PIECES.length) % PIECES.length], next = PIECES[(i + 1) % PIECES.length], e = KO.esc;
+  document.title = p.title + ' · The Kevin Olson Collection';
+  var media = p.photos.map(function (s) { return { type: 'img', src: s }; });
+  if (p.video) media.push({ type: 'video', src: p.video });
+  var cur = 0;
+  main.innerHTML =
+    '<section class="viewer" aria-label="Photos">' +
+      '<div class="stage" id="stage"></div>' +
+      (media.length > 1 ? '<div class="thumbs" id="thumbs">' + media.map(function (m, k) {
+        return '<button type="button" data-k="' + k + '" aria-label="View photo ' + (k + 1) + ' of ' + media.length + '">' +
+          (m.type === 'img' ? '<img src="' + m.src + '" alt="" loading="lazy">' : '<span style="font-size:12px;letter-spacing:1px">VIDEO</span>') + '</button>';
+      }).join('') + '</div>' : '') +
+    '</section>' +
+    '<aside class="side">' +
+      (p.made ? '<span class="badge"><span class="dot"></span>Created by Kevin</span>' : '<p class="eyebrow">From his collection</p>') +
+      '<h1>' + e(p.title) + '</h1>' +
+      (p.artist ? '<p class="artist">' + e(p.artist) + '</p>' : '') +
+      '<dl><dt>ID</dt><dd>' + p.id + '</dd>' +
+      (p.series ? '<dt>Series</dt><dd>' + e(p.series) + '</dd>' : '') +
+      (p.details ? '<dt>Details</dt><dd>' + e(p.details) + '</dd>' : '') +
+      '</dl>' +
+      '<div class="acts">' +
+        '<button type="button" class="btn btn-solid" data-form="story" data-id="' + p.id + '">Share a memory</button>' +
+      '</div>' +
+      '<div class="pn"><a href="piece.html?id=' + prev.id + '">← ' + e(prev.title) + '</a><a href="piece.html?id=' + next.id + '" style="text-align:right">' + e(next.title) + ' →</a></div>' +
+      '<p style="margin-top:18px"><a href="gallery.html" style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--mute)">← Back to the gallery</a></p>' +
+    '</aside>';
+
+  var stage = document.getElementById('stage'), thumbs = document.getElementById('thumbs');
+  function show(k) {
+    cur = (k + media.length) % media.length; var m = media[cur];
+    stage.innerHTML = (m.type === 'img'
+      ? '<img src="' + m.src + '" alt="' + e(p.title) + ', photo ' + (cur + 1) + '">'
+      : '<video src="' + m.src + '" controls playsinline autoplay muted loop></video>') +
+      (media.length > 1 ? '<button type="button" class="arrow l" aria-label="Previous photo">‹</button><button type="button" class="arrow r" aria-label="Next photo">›</button>' : '');
+    if (thumbs) thumbs.querySelectorAll('button').forEach(function (b, n) { b.setAttribute('aria-current', n === cur ? 'true' : 'false'); });
+  }
+  stage.addEventListener('click', function (ev) {
+    if (ev.target.closest('.l')) show(cur - 1);
+    if (ev.target.closest('.r')) show(cur + 1);
+  });
+  if (thumbs) thumbs.addEventListener('click', function (ev) { var b = ev.target.closest('[data-k]'); if (b) show(+b.getAttribute('data-k')); });
+  document.addEventListener('keydown', function (ev) {
+    if (document.querySelector('.modal.open,.drawer.open') || /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
+    if (ev.key === 'ArrowRight') show(cur + 1); if (ev.key === 'ArrowLeft') show(cur - 1);
+  });
+  var notes = (window.NOTES || {})[p.id] || [], ns = document.getElementById('notes');
+  ns.innerHTML = '<div class="nh"><div><p class="eyebrow">' + (notes.length ? notes.length + (notes.length === 1 ? ' note' : ' notes') : 'No notes yet') + '</p>' +
+    '<h2>Notes from friends <em>&amp; loved ones</em></h2></div>' +
+    '<button type="button" class="btn" data-form="story" data-id="' + p.id + '">' + (notes.length ? 'Add your own memory' : 'Be the first to share a memory') + '</button></div>' +
+    (notes.length ? '<div class="list">' + notes.map(function (n) {
+      return '<figure class="note" style="margin:0"><q>' + e(n.text) + '</q><p class="by">' + e(n.name) + ' \u00b7 ' + e(n.date) + '</p></figure>';
+    }).join('') + '</div>' : '');
+  show(0); KO.refresh();
+})();
+</script>
+</body>
+</html>

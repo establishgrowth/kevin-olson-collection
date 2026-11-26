@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Gallery · The Kevin Olson Collection</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Kevin Olson Collection">
+<meta property="og:title" content="The Gallery · The Kevin Olson Collection">
+<meta property="og:description" content="In loving memory of Kevin Olson: the art he made, the art he lived with, and the evening we gathered to remember him.">
+<meta property="og:url" content="https://establishgrowth.github.io/kevin-olson-collection/v2/gallery.html">
+<meta property="og:image" content="https://establishgrowth.github.io/kevin-olson-collection/images/share-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Kevin Olson Collection homepage, with one of Kevin's Night Garden flowers">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://establishgrowth.github.io/kevin-olson-collection/images/share-preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+.ghead{background:var(--ink);color:var(--paper);padding:0 0 56px}
+.ghead h1{margin:14px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(60px,9vw,128px);line-height:.9;letter-spacing:-1.5px}
+.ghead p.lede{margin:22px 0 0;max-width:600px;font-size:18px;line-height:1.6;color:var(--soft)}
+.tools{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+.count{font-size:13px;color:var(--mute-d);letter-spacing:.4px}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}}
+.ghead .r{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="ko-mark">KO</span><span>The Kevin Olson Collection</span></a>
+  <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="gallery.html" aria-current="page">The Gallery</a><a href="index.html#evening">The Evening</a></nav>
+</div></div>
+
+<header class="ghead"><div class="wrap">
+  <p class="eyebrow r" style="color:var(--tan);padding-top:40px">The Kevin Olson Collection</p>
+  <h1 class="r" style="animation-delay:.08s">The <em>Gallery</em></h1>
+  <p class="lede r" style="animation-delay:.16s">The art Kevin made and the art he chose to live with, hung together. Open any piece to see it closely and read the memories friends and family have left with it.</p>
+  <div class="tools r" style="animation-delay:.24s">
+    <div class="filters" role="group" aria-label="Show">
+      <button type="button" class="pill" data-f="all" aria-pressed="true">Everything</button>
+      <button type="button" class="pill" data-f="made" aria-pressed="false">Created by Kevin</button>
+      <button type="button" class="pill" data-f="coll" aria-pressed="false">His collection</button>
+    </div>
+    <label style="position:absolute;left:-9999px" for="q">Search the gallery</label>
+    <input id="q" class="search" type="search" placeholder="Search title, artist or ID">
+  </div>
+</div></header>
+
+<main class="wrap" style="padding-top:48px;padding-bottom:110px">
+  <p class="count" id="count" aria-live="polite" style="margin:0 0 26px;color:var(--mute)"></p>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer class="foot"><div class="wrap"><span>The Kevin Olson Collection · In loving memory</span><span>Created by Elliot Ussery</span><span id="ver"></span></div></footer>
+
+<script src="config.js"></script>
+<script src="../data.js"></script>
+<script>PIECES.forEach(function (p) { p.photos = p.photos.map(function (s) { return "../" + s; }); if (p.video) p.video = "../" + p.video; });</script>
+<script src="../notes.js"></script>
+<script src="site.js"></script>
+<script>
+(function () {
+  var grid = document.getElementById('grid'), count = document.getElementById('count'), q = document.getElementById('q');
+  document.getElementById('ver').textContent = (window.KO_CONFIG || {}).version || '';
+  var f = new URLSearchParams(location.search).get('show') || 'all'; if (['all','made','coll'].indexOf(f) < 0) f = 'all';
+  // Kevin's own work first, with the Night Garden prints hung together, then his collection.
+  var made = PIECES.filter(function (p) { return p.made; }), coll = PIECES.filter(function (p) { return !p.made; });
+  var ng = made.filter(function (p) { return p.series === 'Night Garden'; }), other = made.filter(function (p) { return p.series !== 'Night Garden'; });
+  var mixed = ng.concat(other, coll);
+
+  function card(p) {
+    return '<article class="card reveal">' +
+      '<a class="cover" href="piece.html?id=' + p.id + '"><img src="' + p.photos[0] + '" alt="' + KO.esc(p.title) + (p.artist ? ' by ' + KO.esc(p.artist) : '') + '" loading="lazy"></a>' +
+      (p.made ? '<span class="badge"><span class="dot"></span>Created by Kevin</span>' : '') +
+      '<div class="meta"><div style="min-width:0"><p class="id">' + p.id + (p.series ? ' · ' + KO.esc(p.series) : '') + '</p>' +
+      '<p class="t"><a href="piece.html?id=' + p.id + '">' + KO.esc(p.title) + '</a></p>' +
+      (p.artist ? '<p class="a">' + KO.esc(p.artist) + '</p>' : '') + ((window.NOTES || {})[p.id] ? '<p class="a" style="color:var(--brick)">' + NOTES[p.id].length + (NOTES[p.id].length === 1 ? ' note' : ' notes') + ' from loved ones</p>' : '') + '</div></div></article>';
+  }
+  function render() {
+    var term = q.value.trim().toLowerCase();
+    var list = mixed.filter(function (p) {
+      if (f === 'made' && !p.made) return false;
+      if (f === 'coll' && p.made) return false;
+      if (term && (p.title + ' ' + p.artist + ' ' + p.id + ' ' + p.series).toLowerCase().indexOf(term) < 0) return false;
+      return true;
+    });
+    grid.innerHTML = list.map(card).join('');
+    count.textContent = list.length + (list.length === 1 ? ' work' : ' works');
+    document.querySelectorAll('.pill').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-f') === f ? 'true' : 'false'); });
+    KO.refresh(); KO.reveal(grid);
+  }
+  document.querySelectorAll('.pill').forEach(function (b) {
+    b.addEventListener('click', function () { f = b.getAttribute('data-f'); history.replaceState(null, '', f === 'all' ? 'gallery.html' : 'gallery.html?show=' + f); render(); });
+  });
+  q.addEventListener('input', render);
+  render();
+})();
+</script>
+</body>
+</html>
